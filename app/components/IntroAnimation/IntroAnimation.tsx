@@ -11,21 +11,15 @@ interface IntroAnimationProps {
 export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
-  const leftCurtainRef = useRef<HTMLDivElement>(null);
-  const rightCurtainRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const overlay = overlayRef.current;
     const logo = logoRef.current;
-    const left = leftCurtainRef.current;
-    const right = rightCurtainRef.current;
-
-    if (!overlay || !logo || !left || !right) return;
+    if (!overlay || !logo) return;
 
     document.body.style.overflow = "hidden";
 
-    gsap.set(logo, { opacity: 0, scale: 0.91 });
-    gsap.set([left, right], { xPercent: 0 });
+    gsap.set(logo, { opacity: 0, filter: "blur(14px)", scale: 0.97 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -36,41 +30,33 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     });
 
     tl
-      // Logo fades in
+      // Logo aparece com blur clearing
       .to(logo, {
         opacity: 1,
+        filter: "blur(0px)",
         scale: 1,
-        duration: 0.9,
-        ease: "power4.out",
+        duration: 0.85,
+        ease: "power2.out",
       })
-      // Hold
-      .to({}, { duration: 0.75 })
-      // Logo fades out
+      // Pausa
+      .to({}, { duration: 0.9 })
+      // Logo desaparece com suave blur
       .to(logo, {
         opacity: 0,
-        scale: 1.07,
-        duration: 0.55,
-        ease: "power4.in",
+        filter: "blur(10px)",
+        scale: 1.03,
+        duration: 0.65,
+        ease: "power2.in",
       })
-      // Left curtain exits left
+      // Overlay dissolve
       .to(
-        left,
+        overlay,
         {
-          xPercent: -100,
-          duration: 1.35,
-          ease: "power4.inOut",
+          opacity: 0,
+          duration: 0.3,
+          ease: "power1.inOut",
         },
-        "<0.06"
-      )
-      // Right curtain exits right — starts simultaneously
-      .to(
-        right,
-        {
-          xPercent: 100,
-          duration: 1.35,
-          ease: "power4.inOut",
-        },
-        "<"
+        "<0.05"
       );
 
     return () => {
@@ -82,43 +68,18 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] pointer-events-none"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-white pointer-events-none"
       aria-hidden="true"
     >
-      {/* Left curtain */}
-      <div
-        ref={leftCurtainRef}
-        className="absolute inset-y-0 left-0 w-1/2 bg-black gpu"
-        style={{ willChange: "transform" }}
-      />
-
-      {/* Right curtain */}
-      <div
-        ref={rightCurtainRef}
-        className="absolute inset-y-0 right-0 w-1/2 bg-black gpu"
-        style={{ willChange: "transform" }}
-      />
-
-      {/* Logo — centered above curtains */}
-      <div
-        ref={logoRef}
-        className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
-      >
-        <div
-          style={{
-            width: "clamp(80px, 8.5vw, 136px)",
-            filter: "brightness(0) invert(1)",
-          }}
-        >
-          <Image
-            src="/images/logo.svg"
-            alt="AetherX"
-            width={136}
-            height={68}
-            priority
-            className="w-full h-auto"
-          />
-        </div>
+      <div ref={logoRef} style={{ width: "clamp(72px, 7.5vw, 112px)" }}>
+        <Image
+          src="/images/logo.svg"
+          alt="AetherX"
+          width={112}
+          height={56}
+          priority
+          className="w-full h-auto"
+        />
       </div>
     </div>
   );
