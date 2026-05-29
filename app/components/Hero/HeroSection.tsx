@@ -14,8 +14,8 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
       className="relative flex items-center"
       style={{
         minHeight: "100vh",
-        paddingTop: "calc(var(--navbar-height) + clamp(14px, 1.5vh, 24px))",
-        paddingBottom: "clamp(14px, 1.5vh, 24px)",
+        paddingTop: "var(--hero-padding-top)",
+        paddingBottom: "16px",
         paddingLeft: "var(--panel-h-padding)",
         paddingRight: "var(--panel-h-padding)",
         background: "#ffffff",
