@@ -1,10 +1,13 @@
-@import "tailwindcss";
 @import url('https://api.fontshare.com/v2/css?f[]=lufga@100,200,300,400,500,600,700,800,900&display=swap');
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
-  --navbar-height: clamp(64px, 6.7vh, 80px);
+  --navbar-top: 32px;
+  --navbar-height: 49px;
+  --navbar-width: 876px;
+  --hero-padding-top: calc(var(--navbar-top) + var(--navbar-height) + 16px);
   --panel-gap: clamp(16px, 2.2vw, 42px);
   --panel-h-padding: clamp(16px, 1.4vw, 27px);
 }
@@ -37,7 +40,50 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Premium Button 1 — text with background-gui-macedo-1.svg clip */
+/* ─── Nav link hover — gradient text via dual-layer technique ─── */
+
+.nav-link-text {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+}
+
+.nav-text-base {
+  display: block;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  font-size: 16px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-text-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  background-image: url('/images/buttom-gui-macedo-1.jpg');
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 400;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.nav-link:hover .nav-text-base {
+  opacity: 0;
+}
+
+.nav-link:hover .nav-text-hover {
+  opacity: 1;
+}
+
+/* ─── Premium Button 1 — clipped text from background-gui-macedo-1.svg ─── */
 .btn-p1-text {
   background-image: url('/images/background-gui-macedo-1.svg');
   background-size: 300% 300%;
@@ -47,7 +93,7 @@ body {
   color: transparent;
 }
 
-/* Premium Button 2 — gradient border via mask */
+/* ─── Premium Button 2 — gradient border via mask ─── */
 .btn-p2-border {
   display: inline-flex;
   border-radius: 8px;
@@ -65,7 +111,7 @@ body {
   mask-composite: exclude;
 }
 
-/* Premium Button 2 — text with background-gui-macedo-2.svg clip */
+/* ─── Premium Button 2 — clipped text from background-gui-macedo-2.svg ─── */
 .btn-p2-text {
   background-image: url('/images/background-gui-macedo-2.svg');
   background-size: 300% 300%;
@@ -73,19 +119,4 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-/* Nav link hover SVG approximation */
-.nav-hover-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(204, 34, 0, 0.07) 0%,
-    rgba(232, 69, 10, 0.03) 100%
-  );
-}
-
-/* GPU acceleration utility */
-.gpu {
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
 }

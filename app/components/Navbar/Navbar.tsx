@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 import PrimaryButton from "../ui/PrimaryButton";
 
 const NAV_LINKS = [
-  { href: "#inicio", label: "Início", active: true },
+  { href: "#inicio", label: "Início" },
   { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
   { href: "#processo", label: "Processo" },
@@ -21,33 +21,47 @@ interface NavbarProps {
 export default function Navbar({ introComplete }: NavbarProps) {
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-white/96 backdrop-blur-sm"
+      className="fixed z-50 flex items-center"
       style={{
+        top: "var(--navbar-top)",
+        left: "50%",
+        translateX: "-50%",
+        width: "min(var(--navbar-width), calc(100vw - 32px))",
         height: "var(--navbar-height)",
-        paddingLeft: "clamp(20px, 2.5vw, 52px)",
-        paddingRight: "clamp(20px, 2.5vw, 52px)",
-        borderBottom: "1px solid rgba(0,0,0,0.05)",
+        paddingLeft: "24px",
+        paddingRight: "16px",
+        background: "rgba(255, 255, 255, 0.97)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        border: "1px solid rgba(0, 0, 0, 0.07)",
+        boxShadow: "0 2px 20px rgba(0, 0, 0, 0.07)",
       }}
-      initial={{ opacity: 0, y: -28 }}
-      animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -28 }}
-      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: -12 }}
+      animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Logo */}
       <Link href="/" className="flex-shrink-0 flex items-center">
         <Image
           src="/images/logo.svg"
           alt="AetherX"
-          width={68}
-          height={34}
+          width={52}
+          height={26}
           priority
-          className="h-8 w-auto"
+          className="h-6 w-auto"
         />
       </Link>
 
-      {/* Nav Links — centered */}
-      <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+      {/* Spacer — pushes nav + CTA to the right */}
+      <div className="flex-1" />
+
+      {/* Nav Links */}
+      <nav
+        className="hidden md:flex items-center"
+        style={{ gap: "56px", marginRight: "25px" }}
+      >
         {NAV_LINKS.map((link) => (
-          <NavLink key={link.href} href={link.href} active={link.active}>
+          <NavLink key={link.href} href={link.href}>
             {link.label}
           </NavLink>
         ))}
