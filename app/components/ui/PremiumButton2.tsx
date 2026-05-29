@@ -15,7 +15,6 @@ export default function PremiumButton2({
 }: PremiumButton2Props) {
   const inner: React.CSSProperties = {
     borderRadius: "6.5px",
-    padding: "11px 28px",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
@@ -26,13 +25,17 @@ export default function PremiumButton2({
   };
 
   const label = (
-    <span className="btn-p2-text" style={{ fontSize: "16px", fontWeight: 600 }}>
+    <span className="btn-p2-text" style={{ fontSize: "16px", fontWeight: 600, padding: "14px 37px" }}>
       {children}
     </span>
   );
 
   const content = (
-    <span className="btn-p2-border">
+    <span style={{ position: "relative", display: "inline-flex", borderRadius: "8px" }}>
+      <span
+        className="btn-p2-border"
+        style={{ position: "absolute", inset: 0, borderRadius: "8px", pointerEvents: "none" }}
+      />
       <span style={inner}>{label}</span>
     </span>
   );

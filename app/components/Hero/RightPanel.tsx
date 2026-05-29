@@ -15,7 +15,6 @@ export default function RightPanel({ introComplete }: RightPanelProps) {
       className="relative flex-1 rounded-[20px] overflow-hidden"
       style={{
         maxWidth: "912px",
-        minHeight: PANEL_MIN_H,
         backgroundImage: "url('/images/background-gui-macedo-2.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",

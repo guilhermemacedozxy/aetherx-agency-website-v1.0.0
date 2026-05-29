@@ -56,7 +56,6 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
       className="relative flex-1 rounded-[20px] overflow-hidden flex flex-col"
       style={{
         maxWidth: "912px",
-        minHeight: PANEL_MIN_H,
         backgroundImage: "url('/images/background-gui-macedo-1.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -77,7 +76,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
       {/* Content — mounts only after intro, so each item animates from initial on mount */}
       {introComplete && (
         <div
-          className="relative z-10 flex flex-col h-full justify-between"
+          className="relative z-10 flex flex-col h-full justify-center"
           style={{ padding: "clamp(28px, 3vw, 52px)" }}
         >
           {/* Logo */}
@@ -85,26 +84,26 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+            style={{ marginTop: "60px", marginBottom: "12px" }}
           >
             <Image
               src="/images/logo.svg"
               alt="AetherX"
-              width={52}
-              height={26}
-              className="h-7 w-auto"
-              style={{ filter: "brightness(0) invert(1)" }}
+              width={58}
+              height={25}
+              style={{ filter: "brightness(0) invert(1)", width: "58px", height: "25px" }}
             />
           </motion.div>
 
           {/* Main copy */}
-          <div className="flex-1 flex flex-col justify-center py-8">
+          <div className="flex flex-col">
             <motion.h1
               className="text-white"
               style={{
                 fontSize: "clamp(34px, 3.6vw, 62px)",
                 lineHeight: 1.08,
                 letterSpacing: "-0.025em",
-                fontWeight: 400,
+                fontWeight: 200,
                 marginBottom: "clamp(14px, 1.2vw, 22px)",
               }}
               initial={{ opacity: 0, y: 14 }}
@@ -115,16 +114,19 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               <br />
               para quem quer
               <br />
-              <span style={{ fontWeight: 800 }}>presença digital.</span>
+              <span style={{ fontWeight: 600 }}>presença digital.</span>
             </motion.h1>
 
             <motion.p
-              className="text-white/75"
               style={{
-                fontSize: "clamp(12px, 0.82vw, 15px)",
+                color: "#FFFFFF",
+                fontSize: "18px",
+                fontWeight: 200,
                 lineHeight: 1.65,
-                maxWidth: "min(440px, 85%)",
-                marginBottom: "clamp(22px, 2vw, 36px)",
+                width: "579px",
+                maxWidth: "100%",
+                marginTop: "24px",
+                marginBottom: "24px",
               }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +138,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
 
             <motion.div
               className="flex items-center flex-wrap"
-              style={{ gap: "clamp(12px, 1vw, 18px)" }}
+              style={{ gap: "clamp(12px, 1vw, 18px)", marginBottom: "110px" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
@@ -157,14 +159,14 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
             <QRCodeIcon />
             <div>
               <p
-                className="text-white font-semibold leading-tight"
-                style={{ fontSize: "clamp(11px, 0.72vw, 13px)" }}
+                className="leading-tight"
+                style={{ color: "#FFFFFF", fontSize: "16px", fontWeight: 600 }}
               >
                 Design estratégico e desenvolvimento profissional
               </p>
               <p
-                className="text-white/60 leading-tight mt-0.5"
-                style={{ fontSize: "clamp(10px, 0.68vw, 12px)" }}
+                className="leading-tight"
+                style={{ color: "#FFFFFF", fontSize: "14px", fontWeight: 200 }}
               >
                 Atendimento digital para clientes do mundo inteiro.
               </p>

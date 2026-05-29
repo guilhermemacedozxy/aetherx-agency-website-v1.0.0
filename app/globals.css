@@ -1,4 +1,4 @@
-@import url('https://api.fontshare.com/v2/css?f[]=lufga@100,200,300,400,500,600,700,800,900&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=lufga@100,200,300,400,500,600,700,800,900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -15,7 +15,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Lufga', sans-serif;
+  --font-sans: "Lufga", sans-serif;
 }
 
 *,
@@ -34,7 +34,12 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Lufga', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    "Lufga",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,7 +66,7 @@ body {
   inset: 0;
   display: flex;
   align-items: center;
-  background-image: url('/images/buttom-gui-macedo-1.jpg');
+  background-image: url("/images/buttom-gui-macedo-1.jpg");
   background-size: cover;
   background-position: center;
   -webkit-background-clip: text;
@@ -85,20 +90,19 @@ body {
 
 /* ─── Premium Button 1 — clipped text from background-gui-macedo-1.svg ─── */
 .btn-p1-text {
-  background-image: url('/images/background-gui-macedo-1.svg');
-  background-size: 300% 300%;
+  background-image: url("/images/background-gui-macedo-1.svg");
   background-position: center;
   -webkit-background-clip: text;
   background-clip: text;
+  background-size: cover;
   color: transparent;
 }
 
-/* ─── Premium Button 2 — gradient border via mask ─── */
+/* ─── Premium Button 2 — gradient border via mask (absolutely positioned layer) ─── */
 .btn-p2-border {
-  display: inline-flex;
   border-radius: 8px;
   padding: 1.5px;
-  background-image: url('/images/background-gui-macedo-2.svg');
+  background-image: url("/images/background-gui-macedo-2.svg");
   background-size: 300% 300%;
   background-position: center;
   -webkit-mask:
@@ -113,7 +117,7 @@ body {
 
 /* ─── Premium Button 2 — clipped text from background-gui-macedo-2.svg ─── */
 .btn-p2-text {
-  background-image: url('/images/background-gui-macedo-2.svg');
+  background-image: url("/images/background-gui-macedo-2.svg");
   background-size: 300% 300%;
   background-position: center;
   -webkit-background-clip: text;
