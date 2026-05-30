@@ -21,7 +21,7 @@ interface NavbarProps {
 export default function Navbar({ introComplete }: NavbarProps) {
   return (
     <motion.header
-      className="fixed z-50 flex items-center left-1/2 pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px] rounded-[10px] border border-[rgba(0,0,0,0.07)] shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
+      className="fixed z-50 flex items-center left-1/2 pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px] rounded-[10px] shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
       style={{
         top: "var(--navbar-top)",
         translateX: "-50%",
