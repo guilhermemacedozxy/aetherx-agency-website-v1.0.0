@@ -2,9 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const PANEL_MIN_H =
-  "clamp(480px, calc(100vh - var(--hero-padding-top) - 16px), 864px)";
-
 interface RightPanelProps {
   introComplete: boolean;
 }
@@ -12,13 +9,7 @@ interface RightPanelProps {
 export default function RightPanel({ introComplete }: RightPanelProps) {
   return (
     <motion.div
-      className="relative flex-1 rounded-[20px] overflow-hidden"
-      style={{
-        maxWidth: "912px",
-        backgroundImage: "url('/images/background-gui-macedo-2.svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative flex-1 rounded-[20px] overflow-hidden max-w-[912px] bg-[url('/images/background-gui-macedo-2.svg')] bg-cover bg-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: introComplete ? 1 : 0 }}
       transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}

@@ -14,7 +14,7 @@ function QRCodeIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      style={{ flexShrink: 0 }}
+      className="shrink-0"
     >
       <rect x="1" y="1" width="14" height="14" rx="2.5" fill="white" fillOpacity="0.92" />
       <rect x="4" y="4" width="8" height="8" fill="#1a0000" fillOpacity="0.75" />
@@ -42,24 +42,14 @@ function QRCodeIcon() {
   );
 }
 
-const PANEL_MIN_H =
-  "clamp(480px, calc(100vh - var(--hero-padding-top) - 16px), 864px)";
-
 interface LeftPanelProps {
   introComplete: boolean;
 }
 
 export default function LeftPanel({ introComplete }: LeftPanelProps) {
   return (
-    /* Panel container — only opacity, no translate */
     <motion.div
-      className="relative flex-1 rounded-[20px] overflow-hidden flex flex-col"
-      style={{
-        maxWidth: "912px",
-        backgroundImage: "url('/images/background-gui-macedo-1.svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative flex-1 rounded-[20px] overflow-hidden flex flex-col max-w-[912px] bg-[url('/images/background-gui-macedo-1.svg')] bg-cover bg-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: introComplete ? 1 : 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -81,29 +71,26 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
         >
           {/* Logo */}
           <motion.div
+            className="mt-[60px] mb-3"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
-            style={{ marginTop: "60px", marginBottom: "12px" }}
           >
             <Image
               src="/images/logo.svg"
               alt="AetherX"
               width={58}
               height={25}
-              style={{ filter: "brightness(0) invert(1)", width: "58px", height: "25px" }}
+              className="brightness-0 invert w-[58px] h-[25px]"
             />
           </motion.div>
 
           {/* Main copy */}
           <div className="flex flex-col">
             <motion.h1
-              className="text-white"
+              className="text-white leading-[1.08] tracking-[-0.025em] font-extralight"
               style={{
                 fontSize: "clamp(34px, 3.6vw, 62px)",
-                lineHeight: 1.08,
-                letterSpacing: "-0.025em",
-                fontWeight: 200,
                 marginBottom: "clamp(14px, 1.2vw, 22px)",
               }}
               initial={{ opacity: 0, y: 14 }}
@@ -114,20 +101,11 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               <br />
               para quem quer
               <br />
-              <span style={{ fontWeight: 600 }}>presença digital.</span>
+              <span className="font-semibold">presença digital.</span>
             </motion.h1>
 
             <motion.p
-              style={{
-                color: "#FFFFFF",
-                fontSize: "18px",
-                fontWeight: 200,
-                lineHeight: 1.65,
-                width: "579px",
-                maxWidth: "100%",
-                marginTop: "24px",
-                marginBottom: "24px",
-              }}
+              className="text-white text-lg font-extralight leading-[1.65] w-[579px] max-w-full mt-6 mb-6"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 }}
@@ -137,8 +115,8 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
             </motion.p>
 
             <motion.div
-              className="flex items-center flex-wrap"
-              style={{ gap: "clamp(12px, 1vw, 18px)", marginBottom: "110px" }}
+              className="flex items-center flex-wrap mb-[110px]"
+              style={{ gap: "clamp(12px, 1vw, 18px)" }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
@@ -158,16 +136,10 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
           >
             <QRCodeIcon />
             <div>
-              <p
-                className="leading-tight"
-                style={{ color: "#FFFFFF", fontSize: "16px", fontWeight: 600 }}
-              >
+              <p className="leading-tight text-white text-base font-semibold">
                 Design estratégico e desenvolvimento profissional
               </p>
-              <p
-                className="leading-tight"
-                style={{ color: "#FFFFFF", fontSize: "14px", fontWeight: 200 }}
-              >
+              <p className="leading-tight text-white text-sm font-extralight">
                 Atendimento digital para clientes do mundo inteiro.
               </p>
             </div>

@@ -11,15 +11,11 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
   return (
     <section
       id="inicio"
-      className="relative flex items-stretch"
+      className="relative flex items-stretch h-screen overflow-hidden pb-4 bg-white"
       style={{
-        height: "100vh",
-        overflow: "hidden",
         paddingTop: "var(--hero-padding-top)",
-        paddingBottom: "16px",
         paddingLeft: "var(--panel-h-padding)",
         paddingRight: "var(--panel-h-padding)",
-        background: "#ffffff",
       }}
     >
       <div
