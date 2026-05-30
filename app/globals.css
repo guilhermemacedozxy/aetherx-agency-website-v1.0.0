@@ -89,6 +89,25 @@ body {
   opacity: 1;
 }
 
+.nav-underline {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background-image: url("/images/buttom-gui-macedo-1.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover .nav-underline {
+  transform: scaleX(1);
+}
+
 /* ─── Premium Button 1 — clipped text from background-gui-macedo-1.svg ─── */
 .btn-p1-text {
   background-image: url("/images/background-gui-macedo-1.svg");

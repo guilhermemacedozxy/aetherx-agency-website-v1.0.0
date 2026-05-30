@@ -15,6 +15,7 @@ export default function NavLink({ href, children }: NavLinkProps) {
         <span className="nav-text-hover" aria-hidden="true">
           {children}
         </span>
+        <span className="nav-underline" aria-hidden="true" />
       </span>
     </Link>
   );
