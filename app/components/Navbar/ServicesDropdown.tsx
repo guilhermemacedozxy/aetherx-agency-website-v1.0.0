@@ -53,7 +53,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
-        boxShadow: "0 13px 9px rgba(0,0,0,0.10)",
+        boxShadow: "0 13px 9px rgba(0,0,0,0.22)",
         borderRadius: "0 0 32px 32px",
       }}
     >
