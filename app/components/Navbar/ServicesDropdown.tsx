@@ -61,21 +61,19 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
 
         {/* Div 1 — Para você */}
         <div className="w-[200px] shrink-0 flex flex-col pr-6 border-r border-gray-100">
-          <div className="flex flex-col gap-2">
-            <span className="text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-              Para você
-            </span>
-            <h3 className="text-[15px] font-semibold text-gray-900 leading-snug">
-              Fortaleça sua marca com mais presença digital
-            </h3>
-          </div>
+          <span className="text-[16px] font-[200] text-black">
+            Para você
+          </span>
+          <h3 className="text-[24px] font-normal text-gray-900 leading-snug mt-1 mb-4">
+            Fortaleça sua marca com mais presença digital
+          </h3>
 
           {/* Botão estilo PremiumButton2 com background-gui-macedo-1.svg */}
-          <Link href="#servicos" className="mt-4 inline-flex no-underline self-start">
+          <Link href="#servicos" className="inline-flex no-underline self-start">
             <span className="relative inline-flex rounded-[8px]">
               <span className="btn-dropdown-border absolute inset-0 rounded-[8px] pointer-events-none" />
               <span className="rounded-[6.5px] inline-flex items-center justify-center bg-transparent cursor-pointer select-none">
-                <span className="btn-p1-text text-sm font-semibold py-[10px] px-[22px]">
+                <span className="btn-p1-text text-sm font-semibold py-[14px] px-[48px]">
                   Saiba mais
                 </span>
               </span>
