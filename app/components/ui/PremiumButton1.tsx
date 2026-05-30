@@ -9,7 +9,7 @@ interface PremiumButton1Props {
 }
 
 const outerClass =
-  "inline-flex items-center justify-center rounded-[8px] py-[11px] px-[28px] cursor-pointer select-none bg-[url('/images/background-gui-macedo-2.svg')] bg-cover bg-center no-underline";
+  "inline-flex items-center justify-center rounded-[8px] py-[14px] px-[28px] cursor-pointer select-none bg-[url('/images/background-gui-macedo-2.svg')] bg-cover bg-center no-underline";
 
 export default function PremiumButton1({
   children,
