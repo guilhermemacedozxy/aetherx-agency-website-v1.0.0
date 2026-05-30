@@ -54,13 +54,13 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
       animate={{ opacity: introComplete ? 1 : 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      <div className="relative flex flex-col flex-1">
+      <div className="relative flex flex-col flex-1 border-0 outline-none">
         {/* Legibility overlay */}
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(160deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.06)_50%,rgba(0,0,0,0.24)_100%)]" />
 
         {/* Content */}
         {introComplete && (
-          <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(28px,3vw,52px)]">
+          <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(28px,3vw,52px)] border-0 outline-none">
             {/* Logo */}
             <motion.div
               className="mt-[60px] mb-3"
