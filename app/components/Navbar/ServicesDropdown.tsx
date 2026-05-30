@@ -54,7 +54,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
         boxShadow: "0 13px 9px rgba(0,0,0,0.10)",
-        borderRadius: "0 0 14px 14px",
+        borderRadius: "0 0 32px 32px",
       }}
     >
       <div className="max-w-5xl mx-auto px-8 py-5 flex gap-8">
