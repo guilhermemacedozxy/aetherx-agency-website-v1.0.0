@@ -46,10 +46,10 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
     <motion.div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      initial={{ opacity: 0, y: -6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -6 }}
-      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
+      animate={{ clipPath: "inset(0 0 0% 0 round 0 0 32px 32px)", opacity: 1 }}
+      exit={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
@@ -92,11 +92,11 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                 {category.title}
               </span>
               <div className="flex flex-col gap-6">
-                {category.items.map((item) => (
+                {category.items.map((item, itemIdx) => (
                   <Link
                     key={item.title}
                     href="#servicos"
-                    className="flex items-center gap-2.5 w-83 h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group"
+                    className={`flex items-center gap-2.5 w-83 h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group${itemIdx === category.items.length - 1 ? " mb-14" : ""}`}
                   >
                     <div
                       className="w-11.5 h-11 rounded-lg shrink-0"
