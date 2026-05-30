@@ -86,7 +86,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
           {CATEGORIES.map((category, idx) => (
             <div
               key={category.title}
-              className={`${idx === CATEGORIES.length - 1 ? "w-77" : "w-60.75"} flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
+              className={`${idx === CATEGORIES.length - 1 ? "w-77" : "w-61.75"} flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
             >
               <span className="text-[12px] text-black/60 mb-3">
                 {category.title}
@@ -96,7 +96,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                   <Link
                     key={item.title}
                     href="#servicos"
-                    className={`flex items-center gap-2.5 ${idx === CATEGORIES.length - 1 ? "w-77" : "w-60.75"} h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group${itemIdx === category.items.length - 1 ? " mb-14" : ""}`}
+                    className={`flex items-center gap-2.5 ${idx === CATEGORIES.length - 1 ? "w-77" : "w-61.75"} h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group${itemIdx === category.items.length - 1 ? " mb-14" : ""}`}
                   >
                     <div
                       className="w-11.5 h-11 rounded-lg shrink-0"
