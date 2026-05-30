@@ -10,25 +10,8 @@ interface PrimaryButtonProps {
   className?: string;
 }
 
-const btnStyle: React.CSSProperties = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  borderRadius: "8px",
-  fontSize: "16px",
-  fontWeight: 600,
-  color: "#ffffff",
-  cursor: "pointer",
-  userSelect: "none",
-  whiteSpace: "nowrap",
-  backgroundImage: "url(/images/buttom-gui-macedo-1.jpg)",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  padding: "14px 37px",
-  border: "none",
-  outline: "none",
-  textDecoration: "none",
-};
+const btnClass =
+  "inline-flex items-center justify-center rounded-[8px] text-base font-semibold text-white cursor-pointer select-none whitespace-nowrap bg-[url(/images/buttom-gui-macedo-1.jpg)] bg-cover bg-center py-[14px] px-[37px] border-none outline-none no-underline";
 
 export default function PrimaryButton({
   href,
@@ -37,14 +20,14 @@ export default function PrimaryButton({
 }: PrimaryButtonProps) {
   if (href) {
     return (
-      <Link href={href} style={btnStyle}>
+      <Link href={href} className={btnClass}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} style={btnStyle}>
+    <button onClick={onClick} className={btnClass}>
       {children}
     </button>
   );

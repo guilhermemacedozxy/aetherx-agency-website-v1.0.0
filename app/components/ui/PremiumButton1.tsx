@@ -8,41 +8,28 @@ interface PremiumButton1Props {
   onClick?: () => void;
 }
 
+const outerClass =
+  "inline-flex items-center justify-center rounded-[8px] py-[11px] px-[28px] cursor-pointer select-none bg-[url('/images/background-gui-macedo-2.svg')] bg-cover bg-center no-underline";
+
 export default function PremiumButton1({
   children,
   href,
   onClick,
 }: PremiumButton1Props) {
-  const outer: React.CSSProperties = {
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "8px",
-    padding: "11px 28px",
-    cursor: "pointer",
-    userSelect: "none",
-    backgroundImage: "url('/images/background-gui-macedo-2.svg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    textDecoration: "none",
-  };
-
   const label = (
-    <span className="btn-p1-text" style={{ fontSize: "16px", fontWeight: 600 }}>
-      {children}
-    </span>
+    <span className="btn-p1-text text-base font-semibold">{children}</span>
   );
 
   if (href) {
     return (
-      <a href={href} style={outer}>
+      <a href={href} className={outerClass}>
         {label}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} style={outer}>
+    <button onClick={onClick} className={outerClass}>
       {label}
     </button>
   );

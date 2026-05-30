@@ -13,36 +13,20 @@ export default function PremiumButton2({
   href,
   onClick,
 }: PremiumButton2Props) {
-  const inner: React.CSSProperties = {
-    borderRadius: "6.5px",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: "transparent",
-    cursor: "pointer",
-    userSelect: "none",
-    textDecoration: "none",
-  };
-
-  const label = (
-    <span className="btn-p2-text" style={{ fontSize: "16px", fontWeight: 600, padding: "14px 37px" }}>
-      {children}
-    </span>
-  );
-
   const content = (
-    <span style={{ position: "relative", display: "inline-flex", borderRadius: "8px" }}>
-      <span
-        className="btn-p2-border"
-        style={{ position: "absolute", inset: 0, borderRadius: "8px", pointerEvents: "none" }}
-      />
-      <span style={inner}>{label}</span>
+    <span className="relative inline-flex rounded-[8px]">
+      <span className="btn-p2-border absolute inset-0 rounded-[8px] pointer-events-none" />
+      <span className="rounded-[6.5px] inline-flex items-center justify-center bg-transparent cursor-pointer select-none no-underline">
+        <span className="btn-p2-text text-base font-semibold py-[14px] px-[37px]">
+          {children}
+        </span>
+      </span>
     </span>
   );
 
   if (href) {
     return (
-      <a href={href} style={{ display: "inline-flex", textDecoration: "none" }}>
+      <a href={href} className="inline-flex no-underline">
         {content}
       </a>
     );
@@ -51,7 +35,7 @@ export default function PremiumButton2({
   return (
     <button
       onClick={onClick}
-      style={{ display: "inline-flex", background: "none", border: "none", padding: 0, cursor: "pointer" }}
+      className="inline-flex bg-transparent border-none p-0 cursor-pointer"
     >
       {content}
     </button>
