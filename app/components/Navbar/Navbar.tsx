@@ -21,20 +21,12 @@ interface NavbarProps {
 export default function Navbar({ introComplete }: NavbarProps) {
   return (
     <motion.header
-      className="fixed z-50 flex items-center"
+      className="fixed z-50 flex items-center left-1/2 pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px] rounded-[10px] border border-[rgba(0,0,0,0.07)] shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
       style={{
         top: "var(--navbar-top)",
-        left: "50%",
         translateX: "-50%",
         width: "min(var(--navbar-width), calc(100vw - 32px))",
         height: "var(--navbar-height)",
-        paddingLeft: "24px",
-        paddingRight: "16px",
-        background: "rgba(255, 255, 255, 0.97)",
-        backdropFilter: "blur(10px)",
-        borderRadius: "10px",
-        border: "1px solid rgba(0, 0, 0, 0.07)",
-        boxShadow: "0 2px 20px rgba(0, 0, 0, 0.07)",
       }}
       initial={{ opacity: 0, y: -12 }}
       animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }}
@@ -52,14 +44,11 @@ export default function Navbar({ introComplete }: NavbarProps) {
         />
       </Link>
 
-      {/* Spacer — pushes nav + CTA to the right */}
+      {/* Spacer */}
       <div className="flex-1" />
 
       {/* Nav Links */}
-      <nav
-        className="hidden md:flex items-center"
-        style={{ gap: "56px", marginRight: "25px" }}
-      >
+      <nav className="hidden md:flex items-center gap-14 mr-[25px]">
         {NAV_LINKS.map((link) => (
           <NavLink key={link.href} href={link.href}>
             {link.label}
