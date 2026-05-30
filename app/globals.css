@@ -108,6 +108,23 @@ body {
   transform: scaleX(1);
 }
 
+/* ─── Dropdown button — gradient border via mask using background-gui-macedo-1.svg ─── */
+.btn-dropdown-border {
+  border-radius: 8px;
+  padding: 1.5px;
+  background-image: url("/images/background-gui-macedo-1.svg");
+  background-size: cover;
+  background-position: center;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
 /* ─── Premium Button 1 — clipped text from background-gui-macedo-1.svg ─── */
 .btn-p1-text {
   background-image: url("/images/background-gui-macedo-1.svg");
