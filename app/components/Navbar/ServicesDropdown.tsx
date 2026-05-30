@@ -57,7 +57,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
         borderRadius: "0 0 32px 32px",
       }}
     >
-      <div className="max-w-5xl mx-auto px-8 py-5 flex gap-8">
+      <div className="max-w-335 mx-auto px-8 py-5 flex gap-8">
 
         {/* Div 1 — Para você */}
         <div className="w-66.25 shrink-0 flex flex-col pr-6 border-r border-gray-100">
@@ -82,13 +82,13 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
         </div>
 
         {/* Div 2 — Colunas de serviços */}
-        <div className="flex flex-1 gap-0">
+        <div className="flex gap-6">
           {CATEGORIES.map((category, idx) => (
             <div
               key={category.title}
-              className={`flex-1 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100 pr-5 mr-5" : ""}`}
+              className={`w-77 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
             >
-              <span className="text-[10.5px] font-semibold text-gray-400 uppercase tracking-[0.07em] mb-3 px-1">
+              <span className="text-[12px] text-black/60 mb-3">
                 {category.title}
               </span>
               <div className="flex flex-col gap-0.5">
@@ -96,21 +96,21 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                   <Link
                     key={item.title}
                     href="#servicos"
-                    className="flex items-start gap-2.5 p-1.5 rounded-[7px] hover:bg-black/[0.03] transition-colors duration-150 group"
+                    className="flex items-center gap-2.5 w-77 h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group"
                   >
                     <div
-                      className="w-[38px] h-[38px] rounded-[6px] shrink-0"
+                      className="w-11.5 h-11 rounded-lg shrink-0"
                       style={{
                         backgroundImage: "url('/images/background-gui-macedo-1.svg')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
                     />
-                    <div className="flex flex-col min-w-0 pt-0.5">
-                      <span className="text-[12px] font-medium text-gray-800 leading-tight group-hover:text-gray-900 transition-colors">
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[14px] font-semibold text-black leading-tight">
                         {item.title}
                       </span>
-                      <span className="text-[10.5px] text-gray-400 leading-tight mt-[3px] line-clamp-2">
+                      <span className="text-[10px] text-black/40 leading-tight line-clamp-2">
                         {item.description}
                       </span>
                     </div>
