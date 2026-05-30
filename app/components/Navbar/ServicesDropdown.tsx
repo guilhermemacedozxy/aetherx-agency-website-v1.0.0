@@ -60,11 +60,11 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       <div className="max-w-5xl mx-auto px-8 py-5 flex gap-8">
 
         {/* Div 1 — Para você */}
-        <div className="w-[200px] shrink-0 flex flex-col pr-6 border-r border-gray-100">
+        <div className="w-66.25 shrink-0 flex flex-col pr-6 border-r border-gray-100">
           <span className="text-[16px] font-[200] text-black">
             Para você
           </span>
-          <h3 className="text-[24px] font-normal text-gray-900 leading-snug mt-1 mb-4">
+          <h3 className="text-[24px] font-semibold text-gray-900 leading-snug mt-1 mb-4">
             Fortaleça sua marca com mais presença digital
           </h3>
 
