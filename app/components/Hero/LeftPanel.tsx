@@ -91,7 +91,6 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               className="text-white leading-[1.08] tracking-[-0.025em] font-extralight"
               style={{
                 fontSize: "clamp(34px, 3.6vw, 62px)",
-                marginBottom: "clamp(14px, 1.2vw, 22px)",
               }}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
