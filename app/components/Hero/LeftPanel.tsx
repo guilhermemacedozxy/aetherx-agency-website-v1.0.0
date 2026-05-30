@@ -54,97 +54,99 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
       animate={{ opacity: introComplete ? 1 : 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      {/* Legibility overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(160deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.24) 100%)",
-        }}
-      />
-
-      {/* Content — mounts only after intro, so each item animates from initial on mount */}
-      {introComplete && (
+      <div className="relative flex flex-col flex-1">
+        {/* Legibility overlay */}
         <div
-          className="relative z-10 flex flex-col h-full justify-center"
-          style={{ padding: "clamp(28px, 3vw, 52px)" }}
-        >
-          {/* Logo */}
-          <motion.div
-            className="mt-[60px] mb-3"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(160deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.24) 100%)",
+          }}
+        />
+
+        {/* Content — mounts only after intro, so each item animates from initial on mount */}
+        {introComplete && (
+          <div
+            className="relative z-10 flex flex-col h-full justify-center"
+            style={{ padding: "clamp(28px, 3vw, 52px)" }}
           >
-            <Image
-              src="/images/logo.svg"
-              alt="AetherX"
-              width={58}
-              height={25}
-              className="brightness-0 invert w-[58px] h-[25px]"
-            />
-          </motion.div>
-
-          {/* Main copy */}
-          <div className="flex flex-col">
-            <motion.h1
-              className="text-white leading-[1.08] tracking-[-0.025em] font-extralight"
-              style={{
-                fontSize: "clamp(34px, 3.6vw, 62px)",
-              }}
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
-            >
-              Design e tecnologia
-              <br />
-              para quem quer
-              <br />
-              <span className="font-semibold">presença digital.</span>
-            </motion.h1>
-
-            <motion.p
-              className="text-white text-lg font-extralight leading-[1.65] w-[579px] max-w-full mt-6 mb-6"
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 }}
-            >
-              Fortaleça sua presença digital com design estratégico, tecnologia
-              e soluções criadas para destacar sua marca no mercado.
-            </motion.p>
-
+            {/* Logo */}
             <motion.div
-              className="flex items-center flex-wrap mb-[110px]"
-              style={{ gap: "clamp(12px, 1vw, 18px)" }}
-              initial={{ opacity: 0, y: 14 }}
+              className="mt-[60px] mb-3"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
             >
-              <PremiumButton1 href="#contato">Falar conosco</PremiumButton1>
-              <PremiumButton2 href="#saiba-mais">Saiba Mais</PremiumButton2>
+              <Image
+                src="/images/logo.svg"
+                alt="AetherX"
+                width={58}
+                height={25}
+                className="brightness-0 invert w-[58px] h-[25px]"
+              />
+            </motion.div>
+
+            {/* Main copy */}
+            <div className="flex flex-col">
+              <motion.h1
+                className="text-white leading-[1.08] tracking-[-0.025em] font-extralight"
+                style={{
+                  fontSize: "clamp(34px, 3.6vw, 62px)",
+                }}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
+              >
+                Design e tecnologia
+                <br />
+                para quem quer
+                <br />
+                <span className="font-semibold">presença digital.</span>
+              </motion.h1>
+
+              <motion.p
+                className="text-white text-lg font-extralight leading-[1.65] w-[579px] max-w-full mt-6 mb-6"
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 }}
+              >
+                Fortaleça sua presença digital com design estratégico, tecnologia
+                e soluções criadas para destacar sua marca no mercado.
+              </motion.p>
+
+              <motion.div
+                className="flex items-center flex-wrap mb-[110px]"
+                style={{ gap: "clamp(12px, 1vw, 18px)" }}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
+              >
+                <PremiumButton1 href="#contato">Falar conosco</PremiumButton1>
+                <PremiumButton2 href="#saiba-mais">Saiba Mais</PremiumButton2>
+              </motion.div>
+            </div>
+
+            {/* QR info */}
+            <motion.div
+              className="flex items-center"
+              style={{ gap: "clamp(10px, 0.8vw, 14px)" }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
+            >
+              <QRCodeIcon />
+              <div>
+                <p className="leading-tight text-white text-base font-semibold">
+                  Design estratégico e desenvolvimento profissional
+                </p>
+                <p className="leading-tight text-white text-sm font-extralight">
+                  Atendimento digital para clientes do mundo inteiro.
+                </p>
+              </div>
             </motion.div>
           </div>
-
-          {/* QR info */}
-          <motion.div
-            className="flex items-center"
-            style={{ gap: "clamp(10px, 0.8vw, 14px)" }}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
-          >
-            <QRCodeIcon />
-            <div>
-              <p className="leading-tight text-white text-base font-semibold">
-                Design estratégico e desenvolvimento profissional
-              </p>
-              <p className="leading-tight text-white text-sm font-extralight">
-                Atendimento digital para clientes do mundo inteiro.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      )}
+        )}
+      </div>
     </motion.div>
   );
 }
