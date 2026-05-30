@@ -18,11 +18,13 @@
   --font-sans: "Lufga", sans-serif;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 
 html {
