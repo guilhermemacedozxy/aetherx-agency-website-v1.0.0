@@ -19,7 +19,14 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
     document.body.style.overflow = "hidden";
 
-    gsap.set(logo, { opacity: 0, filter: "blur(14px)", scale: 0.97 });
+    /* Posição inicial: baixo-esquerda, desfocada */
+    gsap.set(logo, {
+      opacity: 0,
+      filter: "blur(22px)",
+      scale: 0.94,
+      x: -45,
+      y: 45,
+    });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -30,25 +37,29 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     });
 
     tl
-      // Logo aparece com blur clearing
+      /* Varre de baixo-esquerda → centro, blur sumindo */
       .to(logo, {
         opacity: 1,
         filter: "blur(0px)",
         scale: 1,
-        duration: 0.85,
-        ease: "power2.out",
+        x: 0,
+        y: 0,
+        duration: 0.95,
+        ease: "power3.out",
       })
-      // Pausa
-      .to({}, { duration: 0.9 })
-      // Logo desaparece com suave blur
+      /* Pausa */
+      .to({}, { duration: 0.85 })
+      /* Varre do centro → cima-direita, blur crescendo */
       .to(logo, {
         opacity: 0,
-        filter: "blur(10px)",
-        scale: 1.03,
-        duration: 0.65,
+        filter: "blur(18px)",
+        scale: 1.02,
+        x: 45,
+        y: -45,
+        duration: 0.6,
         ease: "power2.in",
       })
-      // Overlay dissolve
+      /* Overlay dissolve */
       .to(
         overlay,
         {
@@ -68,15 +79,15 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-white pointer-events-none"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-white pointer-events-none"
       aria-hidden="true"
     >
-      <div ref={logoRef} style={{ width: "clamp(72px, 7.5vw, 112px)" }}>
+      <div ref={logoRef} style={{ width: "clamp(48px, 5vw, 70px)" }}>
         <Image
           src="/images/logo.svg"
           alt="AetherX"
-          width={112}
-          height={56}
+          width={70}
+          height={35}
           priority
           className="w-full h-auto"
         />
