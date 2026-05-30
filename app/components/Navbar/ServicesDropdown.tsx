@@ -54,13 +54,13 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
         boxShadow: "0 13px 9px rgba(0,0,0,0.10)",
-        borderRadius: "0 0 10px 10px",
+        borderRadius: "0 0 14px 14px",
       }}
     >
       <div className="max-w-5xl mx-auto px-8 py-5 flex gap-8">
 
         {/* Div 1 — Para você */}
-        <div className="w-[200px] shrink-0 flex flex-col justify-between pr-6 border-r border-gray-100">
+        <div className="w-[200px] shrink-0 flex flex-col pr-6 border-r border-gray-100">
           <div className="flex flex-col gap-2">
             <span className="text-[11px] text-gray-400 font-medium tracking-wide uppercase">
               Para você
@@ -71,7 +71,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
           </div>
 
           {/* Botão estilo PremiumButton2 com background-gui-macedo-1.svg */}
-          <Link href="#servicos" className="mt-5 inline-flex no-underline self-start">
+          <Link href="#servicos" className="mt-4 inline-flex no-underline self-start">
             <span className="relative inline-flex rounded-[8px]">
               <span className="btn-dropdown-border absolute inset-0 rounded-[8px] pointer-events-none" />
               <span className="rounded-[6.5px] inline-flex items-center justify-center bg-transparent cursor-pointer select-none">

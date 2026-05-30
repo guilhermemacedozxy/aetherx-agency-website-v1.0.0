@@ -111,7 +111,7 @@ body {
 /* ─── Dropdown button — gradient border via mask using background-gui-macedo-1.svg ─── */
 .btn-dropdown-border {
   border-radius: 8px;
-  padding: 1.5px;
+  padding: 2.5px;
   background-image: url("/images/background-gui-macedo-1.svg");
   background-size: cover;
   background-position: center;
