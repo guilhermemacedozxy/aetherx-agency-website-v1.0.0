@@ -49,23 +49,31 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       initial={{ opacity: 0, y: -6 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -6 }}
-      transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-      className="absolute top-[calc(100%+6px)] left-0 w-full bg-white rounded-[10px] shadow-[0_8px_40px_rgba(0,0,0,0.13)]"
+      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
+      style={{
+        top: "calc(var(--navbar-top) + var(--navbar-height))",
+        boxShadow: "0 8px 40px rgba(0,0,0,0.10)",
+        borderRadius: "0 0 10px 10px",
+      }}
     >
-      <div className="flex p-5 gap-4">
+      {/* Linha divisória sutil abaixo da navbar */}
+      <div className="w-full border-t border-black/[0.06]" />
+
+      <div className="max-w-5xl mx-auto px-8 py-5 flex gap-5">
         {/* Seção destaque esquerda */}
-        <div className="w-[185px] flex-shrink-0 flex flex-col justify-between pr-4 border-r border-gray-100">
+        <div className="w-[200px] shrink-0 flex flex-col justify-between pr-5 border-r border-gray-100">
           <div className="flex flex-col gap-2">
-            <span className="text-[11px] text-gray-400 font-medium tracking-wide">
+            <span className="text-[11px] text-gray-400 font-medium tracking-wide uppercase">
               Para você
             </span>
-            <h3 className="text-[14.5px] font-semibold text-gray-900 leading-snug">
+            <h3 className="text-[15px] font-semibold text-gray-900 leading-snug">
               Fortaleça sua marca com mais presença digital
             </h3>
           </div>
           <Link
             href="#servicos"
-            className="mt-4 self-start px-4 py-[7px] border border-gray-200 rounded-[6px] text-[12.5px] text-gray-700 font-medium hover:border-gray-400 hover:text-gray-900 transition-all duration-200"
+            className="mt-5 self-start px-4 py-[7px] border border-gray-200 rounded-[6px] text-[12.5px] text-gray-700 font-medium hover:border-gray-400 hover:text-gray-900 transition-all duration-200"
           >
             Saiba mais
           </Link>
@@ -75,9 +83,9 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
         {CATEGORIES.map((category, idx) => (
           <div
             key={category.title}
-            className={`flex-1 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100 pr-4" : ""}`}
+            className={`flex-1 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100 pr-5" : ""}`}
           >
-            <span className="text-[10.5px] font-semibold text-gray-400 uppercase tracking-[0.07em] mb-2.5 px-1">
+            <span className="text-[10.5px] font-semibold text-gray-400 uppercase tracking-[0.07em] mb-3 px-1">
               {category.title}
             </span>
             <div className="flex flex-col gap-0.5">
@@ -85,10 +93,10 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                 <Link
                   key={item.title}
                   href="#servicos"
-                  className="flex items-start gap-2.5 p-1.5 rounded-[7px] hover:bg-gray-50 transition-colors duration-150 group"
+                  className="flex items-start gap-2.5 p-1.5 rounded-[7px] hover:bg-black/[0.03] transition-colors duration-150 group"
                 >
                   <div
-                    className="w-[38px] h-[38px] rounded-[6px] flex-shrink-0"
+                    className="w-[38px] h-[38px] rounded-[6px] shrink-0"
                     style={{
                       backgroundImage: "url('/images/background-gui-macedo-1.svg')",
                       backgroundSize: "cover",
