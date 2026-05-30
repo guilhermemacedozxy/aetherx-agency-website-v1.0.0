@@ -86,17 +86,17 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
           {CATEGORIES.map((category, idx) => (
             <div
               key={category.title}
-              className={`w-77 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
+              className={`w-83 flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
             >
               <span className="text-[12px] text-black/60 mb-3">
                 {category.title}
               </span>
-              <div className="flex flex-col gap-0.5">
+              <div className="flex flex-col gap-6">
                 {category.items.map((item) => (
                   <Link
                     key={item.title}
                     href="#servicos"
-                    className="flex items-center gap-2.5 w-77 h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group"
+                    className="flex items-center gap-2.5 w-83 h-11 rounded-[7px] hover:bg-black/3 transition-colors duration-150 group"
                   >
                     <div
                       className="w-11.5 h-11 rounded-lg shrink-0"
