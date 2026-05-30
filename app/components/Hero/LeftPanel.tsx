@@ -56,20 +56,11 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
     >
       <div className="relative flex flex-col flex-1">
         {/* Legibility overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(160deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.24) 100%)",
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(160deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.06)_50%,rgba(0,0,0,0.24)_100%)]" />
 
-        {/* Content — mounts only after intro, so each item animates from initial on mount */}
+        {/* Content */}
         {introComplete && (
-          <div
-            className="relative z-10 flex flex-col h-full justify-center"
-            style={{ padding: "clamp(28px, 3vw, 52px)" }}
-          >
+          <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(28px,3vw,52px)]">
             {/* Logo */}
             <motion.div
               className="mt-[60px] mb-3"
@@ -89,10 +80,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
             {/* Main copy */}
             <div className="flex flex-col">
               <motion.h1
-                className="text-white leading-[1.08] tracking-[-0.025em] font-extralight"
-                style={{
-                  fontSize: "clamp(34px, 3.6vw, 62px)",
-                }}
+                className="text-white text-[clamp(34px,3.6vw,62px)] leading-[1.08] tracking-[-0.025em] font-extralight"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
@@ -115,8 +103,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               </motion.p>
 
               <motion.div
-                className="flex items-center flex-wrap mb-[110px]"
-                style={{ gap: "clamp(12px, 1vw, 18px)" }}
+                className="flex items-center flex-wrap mb-[110px] gap-[clamp(12px,1vw,18px)]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
@@ -128,8 +115,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
 
             {/* QR info */}
             <motion.div
-              className="flex items-center"
-              style={{ gap: "clamp(10px, 0.8vw, 14px)" }}
+              className="flex items-center gap-[clamp(10px,0.8vw,14px)]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}
