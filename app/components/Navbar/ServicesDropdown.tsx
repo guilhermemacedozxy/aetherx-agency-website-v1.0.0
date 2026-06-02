@@ -50,7 +50,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
       animate={{ clipPath: "inset(0 0 0% 0 round 0 0 32px 32px)", opacity: 1 }}
       exit={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px] shadow-[0_12px_24px_-4px_rgba(0,0,0,0.10)]"
+      className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
         borderRadius: "0 0 32px 32px",
