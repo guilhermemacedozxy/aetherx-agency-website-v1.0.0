@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { AnimatePresence } from "framer-motion";
 import NavLink from "./NavLink";
 import PrimaryButton from "../ui/PrimaryButton";
 import ServicesDropdown from "./ServicesDropdown";
@@ -21,8 +22,25 @@ interface NavbarProps {
 }
 
 export default function Navbar({ introComplete }: NavbarProps) {
+  const headerRef   = useRef<HTMLElement>(null);
+  const animatedRef = useRef(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!introComplete || !header || animatedRef.current) return;
+    animatedRef.current = true;
+
+    gsap.timeline()
+      /* Navbar sobe e aparece rapidamente */
+      .fromTo(header,
+        { opacity: 0, y: -14, filter: "blur(12px)" },
+        { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }
+      )
+      /* Blur se dissipa levemente após o movimento — efeito claramente visível */
+      .to(header, { filter: "blur(0px)", duration: 0.45, ease: "power2.out" }, "-=0.25");
+  }, [introComplete]);
 
   const openDropdown = () => {
     clearTimeout(closeTimerRef.current);
@@ -46,16 +64,15 @@ export default function Navbar({ introComplete }: NavbarProps) {
           width: "min(var(--navbar-width), calc(100vw - 32px))",
         }}
       >
-        <motion.header
+        <header
+          ref={headerRef}
           className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
           style={{
             height: "var(--navbar-height)",
             borderRadius: isServicesOpen ? "10px 10px 0 0" : "10px",
             transition: "border-radius 0.15s ease",
+            opacity: 0,
           }}
-          initial={{ opacity: 0, y: -12, filter: "blur(10px)" }}
-          animate={introComplete ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: -12, filter: "blur(10px)" }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
         >
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
@@ -93,7 +110,7 @@ export default function Navbar({ introComplete }: NavbarProps) {
 
           {/* CTA */}
           <PrimaryButton href="#contato">Falar conosco</PrimaryButton>
-        </motion.header>
+        </header>
       </div>
 
       {/* Dropdown de serviços — full width, fundido com o pill */}
