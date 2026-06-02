@@ -22,7 +22,6 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     gsap.set(logo, {
       opacity: 0,
       y: 22,
-      filter: "blur(20px)",
       scale: 0.94,
     });
 
@@ -35,27 +34,21 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     });
 
     tl
-      /* Entrada: logo emerge do blur com suavidade */
       .to(logo, {
         opacity: 1,
         y: 0,
-        filter: "blur(0px)",
         scale: 1,
         duration: 1.15,
         ease: "power3.out",
       })
-      /* Pausa: logo nítida e estável */
       .to({}, { duration: 0.85 })
-      /* Saída: logo flutua para cima enquanto se dissolve em blur */
       .to(logo, {
         opacity: 0,
         y: -14,
-        filter: "blur(18px)",
         scale: 1.07,
         duration: 0.6,
         ease: "power2.in",
       })
-      /* Overlay desaparece levemente após a logo começar a sair */
       .to(overlay, {
         opacity: 0,
         duration: 0.45,
@@ -76,7 +69,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     >
       <div
         ref={logoRef}
-        style={{ width: "clamp(48px, 5vw, 70px)", opacity: 0, willChange: "transform, filter, opacity" }}
+        style={{ width: "clamp(48px, 5vw, 70px)", opacity: 0, willChange: "transform, opacity" }}
       >
         <Image
           src="/images/logo.svg"

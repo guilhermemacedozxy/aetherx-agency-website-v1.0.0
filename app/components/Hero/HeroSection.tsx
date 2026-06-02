@@ -32,40 +32,36 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
     const leftDelta  = centerX - leftWrap.offsetLeft;
     const rightDelta = centerX - rightWrap.offsetLeft;
 
-    /* Painéis sobrepostos no centro: desfocados e ligeiramente reduzidos */
+    /* Painéis sobrepostos no centro: ligeiramente reduzidos */
     gsap.set(leftWrap, {
       x: leftDelta,
       opacity: 1,
       zIndex: 2,
       scale: 0.95,
-      filter: "blur(16px)",
-      willChange: "transform, filter",
+      willChange: "transform",
     });
     gsap.set(rightWrap, {
       x: rightDelta,
       opacity: 1,
       zIndex: 1,
       scale: 0.95,
-      filter: "blur(16px)",
-      willChange: "transform, filter",
+      willChange: "transform",
     });
 
-    /* Abertura cinematográfica: deslize suave + blur se dissipando + scale expandindo */
+    /* Abertura cinematográfica: deslize suave + scale expandindo */
     gsap.timeline()
       .to(leftWrap, {
         x: 0,
         scale: 1,
-        filter: "blur(0px)",
         duration: 1.7,
         ease: "expo.inOut",
       })
       .to(rightWrap, {
         x: 0,
         scale: 1,
-        filter: "blur(0px)",
         duration: 1.7,
         ease: "expo.inOut",
-      }, "<0.05") /* leve stagger orgânico */
+      }, "<0.05")
       .call(() => {
         leftWrap.style.willChange  = "auto";
         rightWrap.style.willChange = "auto";
