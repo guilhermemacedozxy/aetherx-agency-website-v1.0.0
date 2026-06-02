@@ -47,7 +47,7 @@ export default function Navbar({ introComplete }: NavbarProps) {
         }}
       >
         <motion.header
-          className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px] shadow-[0_2px_20px_rgba(0,0,0,0.07)]"
+          className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
           style={{
             height: "var(--navbar-height)",
             borderRadius: isServicesOpen ? "10px 10px 0 0" : "10px",
