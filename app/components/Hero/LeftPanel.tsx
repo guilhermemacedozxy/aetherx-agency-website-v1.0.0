@@ -48,12 +48,7 @@ interface LeftPanelProps {
 
 export default function LeftPanel({ introComplete }: LeftPanelProps) {
   return (
-    <motion.div
-      className="relative flex-1 rounded-[20px] overflow-hidden flex flex-col max-w-[912px] bg-[url('/images/background-gui-macedo-1.svg')] bg-cover bg-center"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: introComplete ? 1 : 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
+    <div className="relative w-full h-full rounded-[20px] overflow-hidden flex flex-col bg-[url('/images/background-gui-macedo-1.svg')] bg-cover bg-center">
       <div className="relative flex flex-col flex-1 border-0 outline-none">
         {/* Legibility overlay */}
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(160deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.06)_50%,rgba(0,0,0,0.24)_100%)]" />
@@ -133,6 +128,6 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

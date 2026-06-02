@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import LeftPanel from "./LeftPanel";
 import RightPanel from "./RightPanel";
 
@@ -8,6 +10,39 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ introComplete }: HeroSectionProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const leftWrapRef = useRef<HTMLDivElement>(null);
+  const rightWrapRef = useRef<HTMLDivElement>(null);
+  const animatedRef = useRef(false);
+  const [panelsOpen, setPanelsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!introComplete || animatedRef.current) return;
+    const container = containerRef.current;
+    const leftWrap = leftWrapRef.current;
+    const rightWrap = rightWrapRef.current;
+    if (!container || !leftWrap || !rightWrap) return;
+
+    animatedRef.current = true;
+
+    const containerWidth = container.offsetWidth;
+    const panelWidth = leftWrap.offsetWidth;
+    const centerX = (containerWidth - panelWidth) / 2;
+
+    const leftDelta = centerX - leftWrap.offsetLeft;
+    const rightDelta = centerX - rightWrap.offsetLeft;
+
+    // Ambos os painéis sobrepostos no centro — RightPanel embaixo (z-index menor)
+    gsap.set(leftWrap, { x: leftDelta, opacity: 1, zIndex: 2 });
+    gsap.set(rightWrap, { x: rightDelta, opacity: 1, zIndex: 1 });
+
+    // Abertura cinematográfica: cada painel vai para sua posição final
+    gsap.timeline()
+      .to(leftWrap, { x: 0, duration: 1.4, ease: "power4.inOut" })
+      .to(rightWrap, { x: 0, duration: 1.4, ease: "power4.inOut" }, "<")
+      .call(() => setPanelsOpen(true));
+  }, [introComplete]);
+
   return (
     <section
       id="inicio"
@@ -19,11 +54,16 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
       }}
     >
       <div
-        className="w-full flex items-stretch"
+        ref={containerRef}
+        className="relative w-full flex items-stretch"
         style={{ gap: "var(--panel-gap)" }}
       >
-        <LeftPanel introComplete={introComplete} />
-        <RightPanel introComplete={introComplete} />
+        <div ref={leftWrapRef} className="flex-1 max-w-[912px] opacity-0">
+          <LeftPanel introComplete={panelsOpen} />
+        </div>
+        <div ref={rightWrapRef} className="flex-1 max-w-[912px] opacity-0">
+          <RightPanel />
+        </div>
       </div>
     </section>
   );
