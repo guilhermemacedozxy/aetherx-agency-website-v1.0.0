@@ -10,37 +10,67 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ introComplete }: HeroSectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const leftWrapRef = useRef<HTMLDivElement>(null);
-  const rightWrapRef = useRef<HTMLDivElement>(null);
-  const animatedRef = useRef(false);
+  const containerRef  = useRef<HTMLDivElement>(null);
+  const leftWrapRef   = useRef<HTMLDivElement>(null);
+  const rightWrapRef  = useRef<HTMLDivElement>(null);
+  const animatedRef   = useRef(false);
   const [panelsOpen, setPanelsOpen] = useState(false);
 
   useEffect(() => {
     if (!introComplete || animatedRef.current) return;
     const container = containerRef.current;
-    const leftWrap = leftWrapRef.current;
+    const leftWrap  = leftWrapRef.current;
     const rightWrap = rightWrapRef.current;
     if (!container || !leftWrap || !rightWrap) return;
 
     animatedRef.current = true;
 
     const containerWidth = container.offsetWidth;
-    const panelWidth = leftWrap.offsetWidth;
-    const centerX = (containerWidth - panelWidth) / 2;
+    const panelWidth     = leftWrap.offsetWidth;
+    const centerX        = (containerWidth - panelWidth) / 2;
 
-    const leftDelta = centerX - leftWrap.offsetLeft;
+    const leftDelta  = centerX - leftWrap.offsetLeft;
     const rightDelta = centerX - rightWrap.offsetLeft;
 
-    // Ambos os painéis sobrepostos no centro — RightPanel embaixo (z-index menor)
-    gsap.set(leftWrap, { x: leftDelta, opacity: 1, zIndex: 2 });
-    gsap.set(rightWrap, { x: rightDelta, opacity: 1, zIndex: 1 });
+    /* Painéis sobrepostos no centro: desfocados e ligeiramente reduzidos */
+    gsap.set(leftWrap, {
+      x: leftDelta,
+      opacity: 1,
+      zIndex: 2,
+      scale: 0.95,
+      filter: "blur(16px)",
+      willChange: "transform, filter",
+    });
+    gsap.set(rightWrap, {
+      x: rightDelta,
+      opacity: 1,
+      zIndex: 1,
+      scale: 0.95,
+      filter: "blur(16px)",
+      willChange: "transform, filter",
+    });
 
-    // Abertura cinematográfica: cada painel vai para sua posição final
+    /* Abertura cinematográfica: deslize suave + blur se dissipando + scale expandindo */
     gsap.timeline()
-      .to(leftWrap, { x: 0, duration: 1.4, ease: "power4.inOut" })
-      .to(rightWrap, { x: 0, duration: 1.4, ease: "power4.inOut" }, "<")
-      .call(() => setPanelsOpen(true));
+      .to(leftWrap, {
+        x: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 1.7,
+        ease: "expo.inOut",
+      })
+      .to(rightWrap, {
+        x: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 1.7,
+        ease: "expo.inOut",
+      }, "<0.05") /* leve stagger orgânico */
+      .call(() => {
+        leftWrap.style.willChange  = "auto";
+        rightWrap.style.willChange = "auto";
+        setPanelsOpen(true);
+      });
   }, [introComplete]);
 
   return (
@@ -48,8 +78,8 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
       id="inicio"
       className="relative flex items-stretch h-screen overflow-hidden pb-4 bg-white"
       style={{
-        paddingTop: "var(--hero-padding-top)",
-        paddingLeft: "var(--panel-h-padding)",
+        paddingTop:   "var(--hero-padding-top)",
+        paddingLeft:  "var(--panel-h-padding)",
         paddingRight: "var(--panel-h-padding)",
       }}
     >
