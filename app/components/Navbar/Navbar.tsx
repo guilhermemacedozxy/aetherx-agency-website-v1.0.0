@@ -53,9 +53,9 @@ export default function Navbar({ introComplete }: NavbarProps) {
             borderRadius: isServicesOpen ? "10px 10px 0 0" : "10px",
             transition: "border-radius 0.15s ease",
           }}
-          initial={{ opacity: 0, y: -12 }}
-          animate={introComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: -12 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          initial={{ opacity: 0, y: -12, filter: "blur(10px)" }}
+          animate={introComplete ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: -12, filter: "blur(10px)" }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
         >
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
