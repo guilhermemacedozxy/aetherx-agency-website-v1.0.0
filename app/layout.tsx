@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   description:
     "Fortaleça sua presença digital com design estratégico, tecnologia e soluções criadas para destacar sua marca no mercado.",
   icons: {
-    icon: "/images/logo.svg",
-    shortcut: "/images/logo.svg",
+    icon: "/images/faviconAetherx.svg",
+    shortcut: "/images/faviconAetherx.svg",
   },
 };
 
