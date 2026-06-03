@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import PremiumButton1 from "../ui/PremiumButton1";
 import PremiumButton2 from "../ui/PremiumButton2";
 
@@ -48,7 +48,7 @@ interface LeftPanelProps {
 
 export default function LeftPanel({ introComplete }: LeftPanelProps) {
   return (
-    <div className="relative w-full h-full rounded-[20px] overflow-hidden flex flex-col bg-[url('/images/background-gui-macedo-1.svg')] bg-cover bg-center">
+    <div className="relative w-full h-full rounded-[20px] overflow-hidden flex flex-col bg-[url('/images/background-gui-macedo-1-opt.jpg')] bg-cover bg-center">
       <div className="relative flex flex-col flex-1 border-0 outline-none">
         {/* Legibility overlay */}
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(160deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.06)_50%,rgba(0,0,0,0.24)_100%)]" />
@@ -57,7 +57,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
         {introComplete && (
           <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(28px,3vw,52px)] border-0 outline-none">
             {/* Logo */}
-            <motion.div
+            <m.div
               className="mt-[60px] mb-3"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -70,11 +70,11 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
                 height={25}
                 className="brightness-0 invert w-[58px] h-[25px]"
               />
-            </motion.div>
+            </m.div>
 
             {/* Main copy */}
             <div className="flex flex-col">
-              <motion.h1
+              <m.h1
                 className="text-white text-[clamp(34px,3.6vw,62px)] leading-[1.08] tracking-[-0.025em] font-extralight"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -85,9 +85,9 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
                 para quem quer
                 <br />
                 <span className="font-semibold">presença digital.</span>
-              </motion.h1>
+              </m.h1>
 
-              <motion.p
+              <m.p
                 className="text-white text-lg font-extralight leading-[1.65] w-[579px] max-w-full mt-6 mb-6"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -95,9 +95,9 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               >
                 Fortaleça sua presença digital com design estratégico, tecnologia
                 e soluções criadas para destacar sua marca no mercado.
-              </motion.p>
+              </m.p>
 
-              <motion.div
+              <m.div
                 className="flex items-center flex-wrap mb-[110px] gap-[clamp(12px,1vw,18px)]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -105,11 +105,11 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               >
                 <PremiumButton1 href="#contato">Falar conosco</PremiumButton1>
                 <PremiumButton2 href="#saiba-mais">Saiba Mais</PremiumButton2>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* QR info */}
-            <motion.div
+            <m.div
               className="flex items-center gap-[clamp(10px,0.8vw,14px)]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
                   Atendimento digital para clientes do mundo inteiro.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         )}
       </div>

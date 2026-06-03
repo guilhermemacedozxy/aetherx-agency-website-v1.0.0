@@ -16,6 +16,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
+      </head>
       <body>{children}</body>
     </html>
   );

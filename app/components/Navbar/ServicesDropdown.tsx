@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 
 const CATEGORIES = [
@@ -43,7 +43,7 @@ interface ServicesDropdownProps {
 
 export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: ServicesDropdownProps) {
   return (
-    <motion.div
+    <m.div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       initial={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
@@ -100,7 +100,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                     <div
                       className="w-11.5 h-11 rounded-lg shrink-0"
                       style={{
-                        backgroundImage: "url('/images/background-gui-macedo-1.svg')",
+                        backgroundImage: "url('/images/background-gui-macedo-1-opt.jpg')",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                       }}
@@ -121,6 +121,6 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
         </div>
 
       </div>
-    </motion.div>
+    </m.div>
   );
 }
