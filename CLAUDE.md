@@ -2,6 +2,15 @@
 
 # AetherX Project Rules
 
+## Idioma
+
+- Todas as respostas devem ser fornecidas em Português do Brasil.
+
+- Explicações técnicas em português.
+- Comentários de código em português quando apropriado.
+- Commits em português.
+- Documentação em português.
+
 ## Core Stack
 
 - Utilizar Next.js App Router
@@ -12,7 +21,28 @@
 - Manter código limpo e escalável
 - Priorizar performance e organização
 
+## Tailwind CSS Rules
 
+- Utilizar Tailwind CSS em toda a estilização do projeto.
+
+- Evitar CSS puro sempre que for possível.
+
+- Migrar estilos existentes em arquivos `.css` para classes utilitárias do Tailwind.
+
+- Não criar classes CSS manuais para espaçamento, cores, 
+tipografia, flexbox, grid ou responsividade quando Tailwind resolver.
+
+- Usar `className` com Tailwind diretamente nos componentes React/Next.js.
+
+- Manter CSS global apenas para:
+  - variáveis globais
+  - fontes
+  - resets necessários
+  - configurações base do projeto
+
+- Priorizar responsividade com classes Tailwind como `sm:`, `md:`, `lg:`, `xl:` e `2xl:`.
+
+- Manter o visual fiel ao design original durante a migração.
 
 ## Project Structure
 
@@ -196,35 +226,73 @@
 
 
 
-## Git Workflow
+## Git Workflow (Prioridade Máxima)
 
-- Realizar commits após cada tarefa concluída
-- Nunca acumular muitas alterações
-- Utilizar commits pequenos e organizados
-- Utilizar mensagens claras e profissionais
-- Seguir padrão profissional de versionamento
+- Sempre concluir uma tarefa → realizar commit → iniciar próxima tarefa.
 
-### Commit Examples
+- Nunca acumular múltiplas alterações grandes sem commit.
 
-```bash id="2r4hif"
-git commit -m "feat: implementação da estrutura da navbar"
-```
+- Commits devem acontecer IMEDIATAMENTE após finalizar cada ajuste relevante.
 
-```bash id="e4g3aa"
-git commit -m "feat: estilização premium da navbar"
-```
+- Commits devem ser pequenos, organizados e objetivos.
 
-```bash id="sv2mwg"
-git commit -m "feat: implementação da intro cinematográfica"
-```
+- Escolher dinamicamente o tipo correto do commit dependendo da tarefa executada.
 
-```bash id="4od63g"
-git commit -m "feat: implementação dos botões premium"
-```
+## Tipos de commit obrigatórios
 
-```bash id="p7jlwm"
-git commit -m "feat: refinamento responsivo da interface"
-```
+- feat: para novas funcionalidades
+
+- fix: para correções de bugs
+
+- refactor: para refatorações
+
+- style: para ajustes visuais sem alterar lógica
+
+- perf: para melhorias de performance
+
+- chore: para tarefas técnicas/configurações
+
+- docs: documentação
+
+- build: mudanças de build/configuração
+
+- test: testes
+
+## Fluxo obrigatório
+
+- Receber tarefa
+
+- Implementar
+
+- Validar visualmente / funcionalmente
+
+- Realizar commit
+
+- Prosseguir para próxima tarefa
+
+## Exemplos dinâmicos
+
+- git commit -m "fix: Correção da introdução inicial da aplicação."
+
+- git commit -m "style: Refinamento visual da navbar principal."
+
+- git commit -m "feat: Implementação dos efeitos de hover da navegação."
+
+- git commit -m "perf: Otimização das animações dos painéis."
+
+- git commit -m "refactor: Reorganização estrutural dos componentes da interface."
+
+## IMPORTANTE:
+
+- Escolher automaticamente o tipo correto.
+
+- NÃO usar sempre feat.
+
+- NÃO acumular mudanças.
+
+- Commitar após cada tarefa concluída.
+
+- Prioridade total para organização profissional.
 
 
 
