@@ -69,7 +69,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     >
       <div
         ref={logoRef}
-        style={{ width: "clamp(48px, 5vw, 70px)", opacity: 0, willChange: "transform, opacity" }}
+        style={{ width: "clamp(3rem, 5vw, 4.375rem)", opacity: 0, willChange: "transform, opacity" }}
       >
         <Image
           src="/images/logo.svg"

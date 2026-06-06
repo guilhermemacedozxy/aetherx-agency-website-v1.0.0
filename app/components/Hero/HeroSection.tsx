@@ -84,10 +84,10 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
         className="relative w-full flex items-stretch"
         style={{ gap: "var(--panel-gap)" }}
       >
-        <div ref={leftWrapRef} className="flex-1 max-w-[912px] opacity-0">
+        <div ref={leftWrapRef} className="flex-1 max-w-[57rem] opacity-0">
           <LeftPanel introComplete={panelsOpen} />
         </div>
-        <div ref={rightWrapRef} className="flex-1 max-w-[912px] opacity-0">
+        <div ref={rightWrapRef} className="flex-1 max-w-[57rem] opacity-0">
           <RightPanel />
         </div>
       </div>

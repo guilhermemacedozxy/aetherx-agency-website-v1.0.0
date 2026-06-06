@@ -35,11 +35,11 @@ export default function Navbar({ introComplete }: NavbarProps) {
     gsap.timeline()
       /* Navbar sobe e aparece rapidamente */
       .fromTo(header,
-        { opacity: 0, y: -14, filter: "blur(12px)" },
+        { opacity: 0, y: -14, filter: "blur(0.75rem)" },
         { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }
       )
       /* Blur se dissipa levemente após o movimento — efeito claramente visível */
-      .to(header, { filter: "blur(0px)", duration: 0.45, ease: "power2.out" }, "-=0.25");
+      .to(header, { filter: "blur(0)", duration: 0.45, ease: "power2.out" }, "-=0.25");
   }, [introComplete]);
 
   const openDropdown = () => {
@@ -61,15 +61,15 @@ export default function Navbar({ introComplete }: NavbarProps) {
         style={{
           top: "var(--navbar-top)",
           transform: "translateX(-50%)",
-          width: "min(var(--navbar-width), calc(100vw - 32px))",
+          width: "min(var(--navbar-width), calc(100vw - 2rem))",
         }}
       >
         <header
           ref={headerRef}
-          className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
+          className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[0.625rem]"
           style={{
             height: "var(--navbar-height)",
-            borderRadius: isServicesOpen ? "10px 10px 0 0" : "10px",
+            borderRadius: isServicesOpen ? "0.625rem 0.625rem 0 0" : "0.625rem",
             transition: "border-radius 0.15s ease",
             opacity: 0,
           }}

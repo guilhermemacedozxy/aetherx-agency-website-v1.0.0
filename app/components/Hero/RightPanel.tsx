@@ -2,7 +2,7 @@
 
 export default function RightPanel() {
   return (
-    <div className="relative w-full h-full rounded-[20px] overflow-hidden bg-[url('/images/background-gui-macedo-2-opt.jpg')] bg-cover bg-center">
+    <div className="relative w-full h-full rounded-[1.25rem] overflow-hidden bg-[url('/images/background-gui-macedo-2-opt.jpg')] bg-cover bg-center">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

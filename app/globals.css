@@ -4,12 +4,12 @@
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
-  --navbar-top: 32px;
-  --navbar-height: 49px;
-  --navbar-width: 876px;
-  --hero-padding-top: calc(var(--navbar-top) + var(--navbar-height) + 16px);
-  --panel-gap: clamp(16px, 2.2vw, 42px);
-  --panel-h-padding: clamp(16px, 1.4vw, 27px);
+  --navbar-top: 2rem;
+  --navbar-height: 3.063rem;
+  --navbar-width: 54.75rem;
+  --hero-padding-top: calc(var(--navbar-top) + var(--navbar-height) + 1rem);
+  --panel-gap: clamp(1rem, 2.2vw, 2.625rem);
+  --panel-h-padding: clamp(1rem, 1.4vw, 1.688rem);
 }
 
 @theme inline {
@@ -58,7 +58,7 @@ body {
   display: block;
   color: rgba(0, 0, 0, 0.4);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   transition: opacity 0.2s ease;
 }
 
@@ -74,7 +74,7 @@ body {
   background-clip: text;
   color: transparent;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
@@ -91,10 +91,10 @@ body {
 
 .nav-underline {
   position: absolute;
-  bottom: -3px;
+  bottom: -0.188rem;
   left: 0;
   right: 0;
-  height: 1.5px;
+  height: 0.094rem;
   background-image: url("/images/buttom-gui-macedo-1.jpg");
   background-size: cover;
   background-position: center;
@@ -110,8 +110,8 @@ body {
 
 /* ─── Dropdown button — gradient border via mask using background-gui-macedo-1-opt.jpg ─── */
 .btn-dropdown-border {
-  border-radius: 8px;
-  padding: 2.5px;
+  border-radius: 0.5rem;
+  padding: 0.156rem;
   background-image: url("/images/background-gui-macedo-1-opt.jpg");
   background-size: cover;
   background-position: center;
@@ -137,8 +137,8 @@ body {
 
 /* ─── Premium Button 2 — gradient border via mask (absolutely positioned layer) ─── */
 .btn-p2-border {
-  border-radius: 8px;
-  padding: 1.5px;
+  border-radius: 0.5rem;
+  padding: 0.094rem;
   background-image: url("/images/background-gui-macedo-2-opt.jpg");
   background-size: 300% 300%;
   background-position: center;

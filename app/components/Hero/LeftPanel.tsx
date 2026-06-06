@@ -48,17 +48,17 @@ interface LeftPanelProps {
 
 export default function LeftPanel({ introComplete }: LeftPanelProps) {
   return (
-    <div className="relative w-full h-full rounded-[20px] overflow-hidden flex flex-col bg-[url('/images/background-gui-macedo-1-opt.jpg')] bg-cover bg-center">
+    <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col bg-[url('/images/background-gui-macedo-1-opt.jpg')] bg-cover bg-center">
       <div className="relative flex flex-col flex-1 border-0 outline-none">
         {/* Legibility overlay */}
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(160deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.06)_50%,rgba(0,0,0,0.24)_100%)]" />
 
         {/* Content */}
         {introComplete && (
-          <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(28px,3vw,52px)] border-0 outline-none">
+          <div className="relative z-10 flex flex-col h-full justify-center p-[clamp(1.75rem,3vw,3.25rem)] border-0 outline-none">
             {/* Logo */}
             <m.div
-              className="mt-[60px] mb-3"
+              className="mt-15 mb-3"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
@@ -68,14 +68,14 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
                 alt="AetherX"
                 width={58}
                 height={25}
-                className="brightness-0 invert w-[58px] h-[25px]"
+                className="brightness-0 invert w-14.5 h-6.25"
               />
             </m.div>
 
             {/* Main copy */}
             <div className="flex flex-col">
               <m.h1
-                className="text-white text-[clamp(34px,3.6vw,62px)] leading-[1.08] tracking-[-0.025em] font-extralight"
+                className="text-white text-[clamp(2.125rem,3.6vw,3.875rem)] leading-[1.08] tracking-tight font-extralight"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
@@ -88,7 +88,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               </m.h1>
 
               <m.p
-                className="text-white text-lg font-extralight leading-[1.65] w-[579px] max-w-full mt-6 mb-6"
+                className="text-white text-lg font-extralight leading-[1.65] w-144.75 max-w-full mt-6 mb-6"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.25 }}
@@ -98,7 +98,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               </m.p>
 
               <m.div
-                className="flex items-center flex-wrap mb-[110px] gap-[clamp(12px,1vw,18px)]"
+                className="flex items-center flex-wrap mb-27.5 gap-[clamp(0.75rem,1vw,1.125rem)]"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: "easeOut", delay: 0.35 }}
@@ -110,7 +110,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
 
             {/* QR info */}
             <m.div
-              className="flex items-center gap-[clamp(10px,0.8vw,14px)]"
+              className="flex items-center gap-[clamp(0.625rem,0.8vw,0.875rem)]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.45 }}

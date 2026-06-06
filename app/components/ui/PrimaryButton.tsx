@@ -11,7 +11,7 @@ interface PrimaryButtonProps {
 }
 
 const btnClass =
-  "inline-flex items-center justify-center rounded-[8px] text-base font-semibold text-white cursor-pointer select-none whitespace-nowrap bg-[url(/images/buttom-gui-macedo-1.jpg)] bg-cover bg-center py-[14px] px-[37px] border-none outline-none no-underline";
+  "inline-flex items-center justify-center rounded-lg text-base font-semibold text-white cursor-pointer select-none whitespace-nowrap bg-[url(/images/buttom-gui-macedo-1.jpg)] bg-cover bg-center py-3.5 px-[2.313rem] border-none outline-none no-underline";
 
 export default function PrimaryButton({
   href,

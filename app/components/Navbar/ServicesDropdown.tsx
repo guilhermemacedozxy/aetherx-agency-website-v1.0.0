@@ -46,33 +46,33 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
     <m.div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      initial={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
-      animate={{ clipPath: "inset(0 0 0% 0 round 0 0 32px 32px)", opacity: 1 }}
-      exit={{ clipPath: "inset(0 0 100% 0 round 0 0 32px 32px)", opacity: 0 }}
+      initial={{ clipPath: "inset(0 0 100% 0 round 0 0 2rem 2rem)", opacity: 0 }}
+      animate={{ clipPath: "inset(0 0 0% 0 round 0 0 2rem 2rem)", opacity: 1 }}
+      exit={{ clipPath: "inset(0 0 100% 0 round 0 0 2rem 2rem)", opacity: 0 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className="fixed left-0 w-screen z-40 bg-[rgba(255,255,255,0.97)] backdrop-blur-[10px]"
       style={{
         top: "calc(var(--navbar-top) + var(--navbar-height))",
-        borderRadius: "0 0 32px 32px",
+        borderRadius: "0 0 2rem 2rem",
       }}
     >
       <div className="max-w-335 mx-auto px-8 py-5 flex gap-8">
 
         {/* Div 1 — Para você */}
         <div className="w-66.25 shrink-0 flex flex-col pr-6 border-r border-gray-100">
-          <span className="text-[16px] font-[200] text-black">
+          <span className="text-[1rem] font-[200] text-black">
             Para você
           </span>
-          <h3 className="text-[24px] font-semibold text-gray-900 leading-snug mt-1 mb-4">
+          <h3 className="text-[1.5rem] font-semibold text-gray-900 leading-snug mt-1 mb-4">
             Fortaleça sua marca com mais presença digital
           </h3>
 
           {/* Botão estilo PremiumButton2 com background-gui-macedo-1.svg */}
           <Link href="#servicos" className="inline-flex no-underline self-start">
-            <span className="relative inline-flex rounded-[8px]">
-              <span className="btn-dropdown-border absolute inset-0 rounded-[8px] pointer-events-none" />
-              <span className="rounded-[6.5px] inline-flex items-center justify-center bg-transparent cursor-pointer select-none">
-                <span className="btn-p1-text text-sm font-semibold py-[14px] px-[48px]">
+            <span className="relative inline-flex rounded-lg">
+              <span className="btn-dropdown-border absolute inset-0 rounded-lg pointer-events-none" />
+              <span className="rounded-[0.406rem] inline-flex items-center justify-center bg-transparent cursor-pointer select-none">
+                <span className="btn-p1-text text-sm font-semibold py-3.5 px-12">
                   Saiba mais
                 </span>
               </span>
@@ -87,7 +87,7 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
               key={category.title}
               className={`${idx === CATEGORIES.length - 1 ? "w-83" : "w-61.75"} flex flex-col ${idx < CATEGORIES.length - 1 ? "border-r border-gray-100" : ""}`}
             >
-              <span className="text-[12px] text-black/60 mb-3">
+              <span className="text-xs text-black/60 mb-3">
                 {category.title}
               </span>
               <div className="flex flex-col gap-6">
@@ -106,10 +106,10 @@ export default function ServicesDropdown({ onMouseEnter, onMouseLeave }: Service
                       }}
                     />
                     <div className="flex flex-col min-w-0">
-                      <span className="text-[14px] font-semibold text-black leading-tight">
+                      <span className="text-sm font-semibold text-black leading-tight">
                         {item.title}
                       </span>
-                      <span className="text-[10px] text-black/40 leading-tight line-clamp-2">
+                      <span className="text-[0.625rem] text-black/40 leading-tight line-clamp-2">
                         {item.description}
                       </span>
                     </div>
