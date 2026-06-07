@@ -17,6 +17,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     const logo    = logoRef.current;
     if (!overlay || !logo || !overlay.isConnected) return;
 
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     gsap.set(logo, {
@@ -27,6 +28,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
     const tl = gsap.timeline({
       onComplete: () => {
+        document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
         overlay.remove();
         onComplete();
@@ -57,6 +59,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
 
     return () => {
       tl.kill();
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [onComplete]);
@@ -64,7 +67,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-white pointer-events-none"
+      className="fixed inset-0 z-9999 flex items-center justify-center bg-white pointer-events-all"
       aria-hidden="true"
     >
       <div
