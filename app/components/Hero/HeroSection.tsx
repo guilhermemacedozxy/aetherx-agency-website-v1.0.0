@@ -25,6 +25,9 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
 
     animatedRef.current = true;
 
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
     const containerWidth = container.offsetWidth;
     const panelWidth     = leftWrap.offsetWidth;
     const centerX        = (containerWidth - panelWidth) / 2;
@@ -65,6 +68,8 @@ export default function HeroSection({ introComplete }: HeroSectionProps) {
       .call(() => {
         leftWrap.style.willChange  = "auto";
         rightWrap.style.willChange = "auto";
+        document.documentElement.style.overflow = "";
+        document.body.style.overflow = "";
         setPanelsOpen(true);
       });
   }, [introComplete]);
