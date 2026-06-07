@@ -15,7 +15,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   useEffect(() => {
     const overlay = overlayRef.current;
     const logo    = logoRef.current;
-    if (!overlay || !logo) return;
+    if (!overlay || !logo || !overlay.isConnected) return;
 
     document.body.style.overflow = "hidden";
 
