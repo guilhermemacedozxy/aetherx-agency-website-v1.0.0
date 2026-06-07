@@ -33,12 +33,10 @@ export default function Navbar({ introComplete }: NavbarProps) {
     animatedRef.current = true;
 
     gsap.timeline()
-      /* Navbar sobe e aparece rapidamente */
       .fromTo(header,
-        { opacity: 0, y: -14, filter: "blur(0.75rem)" },
-        { opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }
+        { opacity: 0, filter: "blur(0.75rem)" },
+        { opacity: 1, duration: 0.55, ease: "power3.out" }
       )
-      /* Blur se dissipa levemente após o movimento — efeito claramente visível */
       .to(header, { filter: "blur(0)", duration: 0.45, ease: "power2.out" }, "-=0.25");
   }, [introComplete]);
 
@@ -66,7 +64,7 @@ export default function Navbar({ introComplete }: NavbarProps) {
       >
         <header
           ref={headerRef}
-          className="flex items-center pl-6 pr-4 bg-[rgba(255,255,255,0.97)] backdrop-blur-[0.625rem]"
+          className="flex items-center pl-6 pr-4 bg-transparent backdrop-blur-[0.625rem]"
           style={{
             height: "var(--navbar-height)",
             borderRadius: isServicesOpen ? "0.625rem 0.625rem 0 0" : "0.625rem",
