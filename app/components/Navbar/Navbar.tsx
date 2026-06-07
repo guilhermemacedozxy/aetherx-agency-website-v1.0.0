@@ -55,8 +55,16 @@ export default function Navbar({ introComplete }: NavbarProps) {
     <>
       {/* Pill da navbar */}
       <div
-        className="fixed top-0 left-0 w-full z-50 flex justify-center"
-        style={{ paddingTop: "var(--navbar-top)" }}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 50,
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: "var(--navbar-top)",
+        }}
       >
         <header
           ref={headerRef}
