@@ -55,18 +55,15 @@ export default function Navbar({ introComplete }: NavbarProps) {
     <>
       {/* Pill da navbar */}
       <div
-        className="fixed z-50 left-1/2"
-        style={{
-          top: "var(--navbar-top)",
-          transform: "translateX(-50%)",
-          width: "min(var(--navbar-width), calc(100vw - 2rem))",
-        }}
+        className="fixed top-0 left-0 w-full z-50 flex justify-center"
+        style={{ paddingTop: "var(--navbar-top)" }}
       >
         <header
           ref={headerRef}
           className="flex items-center pl-6 pr-4 bg-transparent backdrop-blur-[0.625rem]"
           style={{
             height: "var(--navbar-height)",
+            width: "min(var(--navbar-width), calc(100vw - 2rem))",
             borderRadius: isServicesOpen ? "0.625rem 0.625rem 0 0" : "0.625rem",
             transition: "border-radius 0.15s ease",
             opacity: 0,
