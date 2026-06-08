@@ -86,7 +86,7 @@ export default function AboutSection() {
               <div key={feature.title} className="flex items-start gap-6">
                 <FeatureIcon src={feature.icon} />
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-[20px] font-semibold tracking-[0.1em] text-black uppercase">
+                  <h3 className="text-[20px] font-semibold text-black uppercase">
                     {feature.title}
                   </h3>
                   <p
