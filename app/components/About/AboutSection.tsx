@@ -62,7 +62,10 @@ export default function AboutSection() {
     >
       <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">
         {/* Coluna esquerda — texto */}
-        <div className="flex-1 flex flex-col justify-center gap-8">
+        <div
+          className="flex flex-col justify-center gap-8 max-w-full"
+          style={{ width: "753px", height: "790px" }}
+        >
           <h2 className="btn-p1-text text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] font-light">
             Sua empresa merece <br />
             mais do que um{" "}
@@ -86,7 +89,10 @@ export default function AboutSection() {
                   <h3 className="text-[20px] font-semibold tracking-[0.1em] text-black uppercase">
                     {feature.title}
                   </h3>
-                  <p className="text-black/70 text-[16px] leading-[25px]">
+                  <p
+                    className="text-black/70 text-[16px] leading-6.25 max-w-full"
+                    style={{ width: "546px" }}
+                  >
                     {feature.description}
                   </p>
                 </div>
