@@ -56,7 +56,7 @@ export default function AboutSection() {
       id="sobre"
       className="bg-white py-10 lg:py-16"
       style={{
-        paddingLeft: "var(--panel-h-padding)",
+        paddingLeft: 0,
         paddingRight: "var(--panel-h-padding)",
       }}
     >
