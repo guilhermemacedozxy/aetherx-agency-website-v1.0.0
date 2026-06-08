@@ -82,7 +82,7 @@ export default function AboutSection() {
             profissionalismo e transformar visitantes em clientes.
           </p>
 
-          <div className="flex flex-col gap-[48px]">
+          <div className="flex flex-col gap-[48px] ml-12">
             {FEATURES.map((feature) => (
               <div key={feature.title} className="flex items-center gap-6">
                 <FeatureIcon src={feature.icon} />
