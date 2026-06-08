@@ -58,6 +58,7 @@ export default function AboutSection() {
       style={{
         paddingLeft: 0,
         paddingRight: "var(--panel-h-padding)",
+        marginLeft: "clamp(2rem, 6vw, 8rem)",
       }}
     >
       <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20">
