@@ -54,7 +54,7 @@ export default function AboutSection() {
   return (
     <section
       id="sobre"
-      className="bg-white py-20 lg:py-28"
+      className="bg-white py-10 lg:py-16"
       style={{
         paddingLeft: "var(--panel-h-padding)",
         paddingRight: "var(--panel-h-padding)",
@@ -69,7 +69,10 @@ export default function AboutSection() {
             <strong className="font-bold">visual.</strong>
           </h2>
 
-          <p className="text-black/50 text-sm leading-relaxed max-w-[34rem]">
+          <p
+            className="text-black/50 max-w-full"
+            style={{ fontSize: "18px", lineHeight: "33px", width: "753px", height: "99px" }}
+          >
             Criamos identidades visuais, sites e sistemas que unem design
             estratégico e tecnologia para fortalecer sua marca, transmitir
             profissionalismo e transformar visitantes em clientes.
