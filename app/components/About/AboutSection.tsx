@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 
 const FEATURES = [
   {
@@ -102,15 +101,11 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Coluna direita — imagem */}
-        <div className="hidden lg:block relative shrink-0 w-[42%] rounded-2xl overflow-hidden min-h-[28rem]">
-          <Image
-            src="/images/background-gui-macedo-2-opt.jpg"
-            alt="AetherX — design e tecnologia"
-            fill
-            className="object-cover"
-          />
-        </div>
+        {/* Coluna direita — fundo laranja */}
+        <div
+          className="hidden lg:block shrink-0 rounded-2xl overflow-hidden bg-[url('/images/background-gui-macedo-1-opt.jpg')] bg-cover bg-center"
+          style={{ width: "618px", height: "803px" }}
+        />
       </div>
     </section>
   );
