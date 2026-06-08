@@ -91,7 +91,7 @@ export default function AboutSection() {
                     {feature.title}
                   </h3>
                   <p
-                    className="text-black/70 text-[16px] leading-6.25 max-w-full"
+                    className="text-black/70 text-[16px] leading-6.25 font-extralight max-w-full"
                     style={{ width: "546px" }}
                   >
                     {feature.description}
