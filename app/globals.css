@@ -30,6 +30,11 @@
 html {
   overflow-x: clip;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
