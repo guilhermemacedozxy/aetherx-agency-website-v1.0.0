@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { gsap } from "gsap";
-import Image from "next/image";
 
 interface IntroAnimationProps {
   onComplete: () => void;
@@ -11,14 +10,23 @@ interface IntroAnimationProps {
 export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const logoRef    = useRef<HTMLDivElement>(null);
+  const tlRef      = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
-    const overlay = overlayRef.current;
-    const logo    = logoRef.current;
-    if (!overlay || !logo || !overlay.isConnected) return;
-
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
+
+    return () => {
+      tlRef.current?.kill();
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, []);
+
+  const runAnimation = useCallback(() => {
+    const overlay = overlayRef.current;
+    const logo    = logoRef.current;
+    if (!overlay || !logo) return;
 
     gsap.set(logo, {
       opacity: 0,
@@ -27,7 +35,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       filter: "blur(0.75rem)",
     });
 
-    const tl = gsap.timeline({
+    tlRef.current = gsap.timeline({
       onComplete: () => {
         document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
@@ -36,7 +44,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       },
     });
 
-    tl
+    tlRef.current
       .to(logo, {
         opacity: 1,
         y: 0,
@@ -62,31 +70,30 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         duration: 0.45,
         ease: "power2.inOut",
       }, "<0.12");
-
-    return () => {
-      tl.kill();
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
   }, [onComplete]);
 
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-9999 flex items-center justify-center bg-white pointer-events-all"
+      className="fixed inset-0 flex items-center justify-center bg-white pointer-events-all"
+      style={{ zIndex: 9999 }}
       aria-hidden="true"
     >
       <div
         ref={logoRef}
-        style={{ width: "clamp(3rem, 5vw, 4.375rem)", opacity: 0, willChange: "transform, opacity" }}
+        className="opacity-0"
+        style={{
+          width: "clamp(3rem, 5vw, 4.375rem)",
+          willChange: "transform, opacity, filter",
+        }}
       >
-        <Image
+        <img
           src="/images/logo-main.svg"
           alt="AetherX"
           width={70}
           height={35}
-          priority
-          className="w-full h-auto"
+          onLoad={runAnimation}
+          style={{ width: "100%", height: "auto" }}
         />
       </div>
     </div>
