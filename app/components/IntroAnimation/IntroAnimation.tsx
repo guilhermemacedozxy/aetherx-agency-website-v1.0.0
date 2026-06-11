@@ -28,12 +28,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
     const logo    = logoRef.current;
     if (!overlay || !logo) return;
 
-    gsap.set(logo, {
-      opacity: 0,
-      y: 22,
-      scale: 0.94,
-      filter: "blur(0.75rem)",
-    });
+    gsap.set(logo, { opacity: 0, y: 24, scale: 0.95 });
 
     tlRef.current = gsap.timeline({
       onComplete: () => {
@@ -49,27 +44,22 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 1.15,
+        duration: 1.2,
         ease: "power3.out",
       })
-      .to(logo, {
-        filter: "blur(0)",
-        duration: 0.5,
-        ease: "power2.out",
-      }, "-=0.7")
-      .to({}, { duration: 0.85 })
+      .to({}, { duration: 0.9 })
       .to(logo, {
         opacity: 0,
-        y: -14,
-        scale: 1.07,
-        duration: 0.6,
+        y: -16,
+        scale: 1.06,
+        duration: 0.55,
         ease: "power2.in",
       })
       .to(overlay, {
         opacity: 0,
         duration: 0.45,
         ease: "power2.inOut",
-      }, "<0.12");
+      }, "<0.1");
   }, [onComplete]);
 
   return (
@@ -84,7 +74,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         className="opacity-0"
         style={{
           width: "clamp(3rem, 5vw, 4.375rem)",
-          willChange: "transform, opacity, filter",
+          willChange: "transform, opacity",
         }}
       >
         <img
