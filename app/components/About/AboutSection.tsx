@@ -85,7 +85,7 @@ export default function AboutSection() {
             {FEATURES.map((feature) => (
               <div key={feature.title} className="flex items-center gap-6">
                 <FeatureIcon src={feature.icon} />
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                   <h3 className="text-[20px] font-semibold text-black uppercase">
                     {feature.title}
                   </h3>
