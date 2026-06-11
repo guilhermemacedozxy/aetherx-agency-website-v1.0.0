@@ -32,12 +32,11 @@ export default function Navbar({ introComplete }: NavbarProps) {
     if (!introComplete || !header || animatedRef.current) return;
     animatedRef.current = true;
 
-    gsap.timeline()
-      .fromTo(header,
-        { opacity: 0, filter: "blur(0.75rem)" },
-        { opacity: 1, duration: 0.55, ease: "power3.out" }
-      )
-      .to(header, { filter: "blur(0)", duration: 0.45, ease: "power2.out" }, "-=0.25");
+    gsap.fromTo(
+      header,
+      { opacity: 0, y: -16 },
+      { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 1.1 }
+    );
   }, [introComplete]);
 
   const openDropdown = () => {
