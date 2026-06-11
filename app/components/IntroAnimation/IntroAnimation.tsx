@@ -24,6 +24,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
       opacity: 0,
       y: 22,
       scale: 0.94,
+      filter: "blur(0.75rem)",
     });
 
     const tl = gsap.timeline({
@@ -43,6 +44,11 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         duration: 1.15,
         ease: "power3.out",
       })
+      .to(logo, {
+        filter: "blur(0)",
+        duration: 0.5,
+        ease: "power2.out",
+      }, "-=0.7")
       .to({}, { duration: 0.85 })
       .to(logo, {
         opacity: 0,
