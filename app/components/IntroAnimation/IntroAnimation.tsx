@@ -75,7 +75,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         style={{ width: "clamp(3rem, 5vw, 4.375rem)", opacity: 0, willChange: "transform, opacity" }}
       >
         <Image
-          src="/images/logo.svg"
+          src="/images/logo-main.svg"
           alt="AetherX"
           width={70}
           height={35}
