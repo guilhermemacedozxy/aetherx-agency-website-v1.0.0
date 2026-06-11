@@ -81,7 +81,7 @@ body::-webkit-scrollbar {
   inset: 0;
   display: flex;
   align-items: center;
-  background-image: url("/images/buttom-gui-macedo-1.jpg");
+  background-image: url("/images/buttom-background.jpg");
   background-size: cover;
   background-position: center;
   -webkit-background-clip: text;
@@ -109,7 +109,7 @@ body::-webkit-scrollbar {
   left: 0;
   right: 0;
   height: 0.094rem;
-  background-image: url("/images/buttom-gui-macedo-1.jpg");
+  background-image: url("/images/buttom-background.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 1px;
