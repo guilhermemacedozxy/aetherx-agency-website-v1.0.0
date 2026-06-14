@@ -78,7 +78,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
         }}
       >
         <img
-          src="/images/logo-main.svg"
+          src="/images/icons/logo-aetherx.svg"
           alt="AetherX"
           width={70}
           height={35}

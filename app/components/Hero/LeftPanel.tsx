@@ -64,7 +64,7 @@ export default function LeftPanel({ introComplete }: LeftPanelProps) {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
             >
               <Image
-                src="/images/logo-main.svg"
+                src="/images/icons/logo-aetherx.svg"
                 alt="AetherX"
                 width={58}
                 height={25}

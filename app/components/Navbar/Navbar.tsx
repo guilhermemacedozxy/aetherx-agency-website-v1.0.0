@@ -79,7 +79,7 @@ export default function Navbar({ introComplete }: NavbarProps) {
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
             <Image
-              src="/images/logo-main.svg"
+              src="/images/icons/logo-aetherx.svg"
               alt="AetherX"
               width={52}
               height={26}
